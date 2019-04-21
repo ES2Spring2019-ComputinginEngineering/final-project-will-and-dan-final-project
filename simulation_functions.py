@@ -26,11 +26,14 @@ def update_system(pop, beta, gamma, i):
     i = current_pop[1]
     r = current_pop[2]
     
-    rec = r + gamma * i
-    inf = i + beta * s * i - rec
-    sus = s - i
+    infected = beta * i * s
+    recovered = gamma * i
     
-    new_pop = np.array([[sus, inf, rec]])
+    R = r + recovered
+    I = i + infected - recovered
+    S = s - infected
+    
+    new_pop = np.array([[S, I, R]])
     
     pop = np.concatenate((pop, new_pop))
     return pop
@@ -47,6 +50,6 @@ def run_sim(pop, days):
             
     return new_pop
         
-final_pop = run_sim(initial_SIR, 14)
+final_pop = run_sim(initial_SIR, 7*14)
 
         
