@@ -18,7 +18,7 @@ def system_var(tc, tr):
     gamma = 1 / tr
     return beta, gamma
 
-b, g = system_var(3, 4)
+b, g = system_var(3, 14)
 
 def update_system(pop, beta, gamma, i):
     current_pop = pop[i]
