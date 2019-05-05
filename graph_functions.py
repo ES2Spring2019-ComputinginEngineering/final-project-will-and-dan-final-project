@@ -33,7 +33,7 @@ graph_data(100, 1, 200)
 initial_SIR = np.array(initialize_inf(100, 1))
 final_pop = run_sim(initial_SIR, 150)
 
-#def table_data(data):
- #   pd.DataFrame(data=data[0:,0:])
+def table_data(data):
+    pd.DataFrame(data=data[0:,0:])
     
-#print(table_data(final_pop))
+print(table_data(final_pop))
