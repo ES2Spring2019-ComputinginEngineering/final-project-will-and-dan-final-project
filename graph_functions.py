@@ -28,12 +28,14 @@ def graph_data(pop, inf, days):
     plt.ylabel('Population Percent')
     plt.show()
 
-graph_data(100, 1, 200)
+graph_data(100, 1, 125)
 
 initial_SIR = np.array(initialize_inf(100, 1))
-final_pop = run_sim(initial_SIR, 150)
+final_pop = run_sim(initial_SIR, 125)
 
 def table_data(data):
-    pd.DataFrame(data=data[0:,0:])
+    
+    d = {'Susceptible': data[:,0], 'Infected': data[:,1], 'Recovered': data[:,2]}
+    return pd.DataFrame(data = d)
     
 print(table_data(final_pop))
