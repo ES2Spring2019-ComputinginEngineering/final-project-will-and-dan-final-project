@@ -4,9 +4,6 @@ Created on Mon Apr 22 15:00:22 2019
 
 @author: danie
 """
-import numpy as np
-
-import tkinter as tk
 
 def userInput():
     print("Welcome to the Epidemic Simulator.\nInput your values for the following variables.")

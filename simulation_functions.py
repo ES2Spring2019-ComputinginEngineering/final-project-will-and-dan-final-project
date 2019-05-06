@@ -49,18 +49,18 @@ def update_system(pop, beta, gamma, i, sev):
     pop = np.concatenate((pop, new_pop))
     return pop
 
-new_pop = update_system(initial_SIR, b, g, 0)
+new_pop = update_system(initial_SIR, b, g, 0, 0.15)
 
-def run_sim(pop, days):
+def run_sim(pop, days, sev):
     
     for i in range(days):
         if i == 0:
-            new_pop = update_system(pop, b, g, i)
+            new_pop = update_system(pop, b, g, i, sev)
         else:
-            new_pop = update_system(new_pop, b, g, i)
+            new_pop = update_system(new_pop, b, g, i, sev)
             
     return new_pop
         
-final_pop = run_sim(initial_SIR, 7*14)
+final_pop = run_sim(initial_SIR, 7*14, 0.15)
 
         
