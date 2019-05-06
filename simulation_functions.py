@@ -7,6 +7,17 @@ Created on Wed Apr 17 15:33:44 2019
 
 import numpy as np
 
+a = np.array([["Measles", 0.90], 
+              ["Flu",0.40], 
+              ["Tuberculosis",0.80], 
+              ["Cholera",0.70], 
+              ["Ebola", 0.80]])
+
+def severityCoeff(infect, vaccine, disease):
+    diseaseCoeff = float(a[disease, 1])
+    sev = diseaseCoeff - vaccine
+    return sev   
+
 def initialize_inf(pop, inf):
     sus = pop - inf
     return [[sus/pop, inf/pop, 0]]
@@ -20,7 +31,7 @@ def system_var(tc, tr):
 
 b, g = system_var(3, 14)
 
-def update_system(pop, beta, gamma, i):
+def update_system(pop, beta, gamma, i, sev):
     current_pop = pop[i]
     s = current_pop[0]
     i = current_pop[1]
@@ -30,7 +41,7 @@ def update_system(pop, beta, gamma, i):
     recovered = gamma * i
     
     R = r + recovered
-    I = i + infected - recovered
+    I = (i + infected - recovered) * sev
     S = s - infected
     
     new_pop = np.array([[S, I, R]])

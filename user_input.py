@@ -18,17 +18,5 @@ def userInput():
     
     return pop, infect, vaccine, disease, days
 
-a = np.array([["Measles", 0.90], 
-              ["Flu",0.40], 
-              ["Tuberculosis",0.80], 
-              ["Cholera",0.70], 
-              ["Ebola", 0.80]])
-
-def severityCoeff(infect, vaccine, disease):
-    diseaseCoeff = float(a[disease, 1])
-    sev = diseaseCoeff - vaccine
-    return sev
-    
 pop, infect, vaccine, disease, days = userInput()
 
-sev = severityCoeff(infect, vaccine, disease)
