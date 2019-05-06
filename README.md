@@ -1,39 +1,28 @@
-# This is your Final Project ReadMe Template
 
-The file is inside your final project repository called "README.md"
+# Simulating the Spread of an Epidemic
 
-You should include in your final project readme a description of the project, a list of all the files that you have created and instructions for use.
-
-This readme is written in a language called markdown. This is not a programming language but a formatting langauge. There are symbols (syntax) used to indicate how to format the text. For example the pound symbol (i.e. the hashtag) is used to format a title; two of the same symbol format a heading, and three format a sub-heading.
-
-Below is some example text in markdown however this alone is not suffiecent for the final project. **Make sure you follow the directions on Canvas.**
-
-Delete the instructions above this line and the line:
-
----------------------------------------------
-
-# Project Title
-
-Short project description here, click the **EDIT (pencil) button** in the top right corner of this frame to copy the markdown formatted template.
+This project simulates an epidemic by taking data inputted by the user and calculating the ratios over time of three population groups: Susceptible, Infected, and Recovered. A graph and table displays the data.
 
 ## Instructions
 
-Describe how the users(instructors) should run your code to see an ***easy to run example of the functionality***. This should all be in a *main.py* "driver" script.
+When main.py is open, run the program. It will prompt you for the following data:
+
+- Total population
+- Initial infected population
+- Type of community
+- Type of disease
+- Number of days simulated
+
+Enter in the desired simulation data, and after the days are inputted a graph and table will appear. The graph displays the ratios of groups as time advances, and the table shows the exact percentages. 
 
 ## File List
 
-Create a list of all of the files in your repository with one sentence descriptions 
+- main.py: The main function that calls other functions
+- user_input.py: The function where the user inputs initial data
+- simulation_functions.py: Function that calculates infection and recovery rates, and the ratios along time
+- graph_functions.py: Function that graphs the data and displays table
 
-## How to format your readme
+## Features
 
-In your readme, you can:
-```
-Give code examples
-```
+- 
 
-You can also include useful links, like this one with information about [formatting markdown](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
-
-You can 
-- Also
-- Make
-- Lists
