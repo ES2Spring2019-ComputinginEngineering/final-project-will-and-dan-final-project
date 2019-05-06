@@ -37,6 +37,5 @@ def table_data(data):
     
     d = {'Susceptible': data[:,0], 'Infected': data[:,1], 'Recovered': data[:,2]}
     return pd.DataFrame(data = d)
-
-table =      
+     
 print(table_data(final_pop))
