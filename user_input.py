@@ -4,7 +4,7 @@ Created on Mon Apr 22 15:00:22 2019
 
 @author: danie
 """
-
+#This purpose of this program is to allow for user interaction with the simulation
 def userInput():
     print("Welcome to the Epidemic Simulator.\nInput your values for the following variables.")
     pop = int(input("Total population: "))
@@ -14,6 +14,3 @@ def userInput():
     days = int(input("How many days do you want to model: "))
     
     return pop, infect, contactTime, disease, days
-
-#pop, infect, tc, disease, days = userInput()
-

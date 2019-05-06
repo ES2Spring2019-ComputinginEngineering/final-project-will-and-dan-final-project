@@ -24,15 +24,10 @@ def initialize_inf(pop, inf):
     sus = pop - inf
     return [[sus/pop, inf/pop, 0]]
 
-#initial_SIR = np.array(initialize_inf(100, 1))
-
 def system_var(tc, tr):
     beta = 1 / tc
     gamma = 1 / tr
     return beta, gamma
-
-#tc, tr = environmentInfo(tc, disease)
-#b, g = system_var(tc, tr)
 
 def update_system(pop, beta, gamma, i,):
     current_pop = pop[i]
@@ -52,7 +47,6 @@ def update_system(pop, beta, gamma, i,):
     pop = np.concatenate((pop, new_pop))
     return pop
 
-#new_pop = update_system(initial_SIR, b, g, 0)
 
 def run_sim(pop, days, b, g):
     
@@ -63,7 +57,4 @@ def run_sim(pop, days, b, g):
             new_pop = update_system(new_pop, b, g, i)
             
     return new_pop
-        
-#final_pop = run_sim(initial_SIR, 7*14)
-
         
