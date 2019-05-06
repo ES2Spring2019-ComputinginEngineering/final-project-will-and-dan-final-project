@@ -1,12 +1,14 @@
-# -*- coding: utf-8 -*-
 """
 Created on Wed Apr 17 15:33:44 2019
 
 @author: william
-"""
 
+The purpose of this program is to create the 2D array system over the course of the desired number of days.
+"""
+#Import Statements
 import numpy as np
 
+#Initial disease and community arrays
 a = np.array([["Measles", 4], 
               ["Flu", 10], 
               ["Tuberculosis", 14], 
@@ -15,6 +17,7 @@ a = np.array([["Measles", 4],
 
 b = np.array([[0, 2],[1, 5],[2, 10]])
 
+#Functions
 def environmentInfo(tc, disease):
     recovery = int(a[disease, 1])
     contact = int(b[tc, 1])
