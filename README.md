@@ -24,7 +24,10 @@ We recomend that you use at least a 100 person population and run the simulation
 - graph_functions.py: Function that graphs the data and displays table
 
 ## Features
-
+Libraries
 - numpy arrays
 - panda DataFrames
-
+Methods
+- Solving systems of linear equations
+- Using descriptive statistics
+- Extrapolation
