@@ -7,15 +7,17 @@ Created on Wed Apr 17 15:33:44 2019
 
 import numpy as np
 
-a = np.array([["Measles", 0.90], 
-              ["Flu",0.40], 
-              ["Tuberculosis",0.80], 
-              ["Cholera",0.70], 
-              ["Ebola", 0.80]])
+a = np.array([["Measles", 4], 
+              ["Flu", 10], 
+              ["Tuberculosis", 14], 
+              ["Cholera", 3], 
+              ["Ebola", 21]])
 
-def severityCoeff(infect, vaccine, disease):
-    diseaseCoeff = float(a[disease, 1])
-    sev = diseaseCoeff - vaccine
+b = np.array([[0, 2],[1, 5],[2, 10]])
+
+def enviromentInfo(tc, disease):
+    recovery = int(a[disease, 1])
+    contact = int(b[tc, ])
     return sev   
 
 def initialize_inf(pop, inf):
@@ -25,13 +27,14 @@ def initialize_inf(pop, inf):
 initial_SIR = np.array(initialize_inf(100, 1))
 
 def system_var(tc, tr):
+    #tc = tc / sev
     beta = 1 / tc
     gamma = 1 / tr
     return beta, gamma
 
 b, g = system_var(3, 14)
 
-def update_system(pop, beta, gamma, i, sev):
+def update_system(pop, beta, gamma, i,):
     current_pop = pop[i]
     s = current_pop[0]
     i = current_pop[1]
@@ -41,7 +44,7 @@ def update_system(pop, beta, gamma, i, sev):
     recovered = gamma * i
     
     R = r + recovered
-    I = (i + infected - recovered) * sev
+    I = i + infected - recovered
     S = s - infected
     
     new_pop = np.array([[S, I, R]])
@@ -49,18 +52,18 @@ def update_system(pop, beta, gamma, i, sev):
     pop = np.concatenate((pop, new_pop))
     return pop
 
-new_pop = update_system(initial_SIR, b, g, 0, 0.15)
+new_pop = update_system(initial_SIR, b, g, 0)
 
-def run_sim(pop, days, sev):
+def run_sim(pop, days):
     
     for i in range(days):
         if i == 0:
-            new_pop = update_system(pop, b, g, i, sev)
+            new_pop = update_system(pop, b, g, i)
         else:
-            new_pop = update_system(new_pop, b, g, i, sev)
+            new_pop = update_system(new_pop, b, g, i)
             
     return new_pop
         
-final_pop = run_sim(initial_SIR, 7*14, 0.15)
+final_pop = run_sim(initial_SIR, 7*14)
 
         

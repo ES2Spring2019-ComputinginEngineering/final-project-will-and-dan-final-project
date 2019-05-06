@@ -10,9 +10,9 @@ import numpy as np
 import pandas as pd
 from simulation_functions import initialize_inf, run_sim
 
-def graph_data(pop, inf, days, sev):
+def graph_data(pop, inf, days):
     initial_SIR = np.array(initialize_inf(pop, inf))
-    final_pop = run_sim(initial_SIR, days, sev)
+    final_pop = run_sim(initial_SIR, days)
     
     S = final_pop[:,0]
     I = final_pop[:,1]
@@ -31,7 +31,7 @@ def graph_data(pop, inf, days, sev):
 graph_data(100, 1, 125)
 
 initial_SIR = np.array(initialize_inf(100, 1))
-final_pop = run_sim(initial_SIR, 125, 0.15)
+final_pop = run_sim(initial_SIR, 125)
 
 def table_data(data):
     
