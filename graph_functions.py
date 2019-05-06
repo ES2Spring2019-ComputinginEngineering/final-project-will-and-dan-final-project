@@ -8,11 +8,14 @@ Created on Sun Apr 21 18:13:04 2019
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from simulation_functions import initialize_inf, run_sim
+from simulation_functions import initialize_inf, run_sim, system_var
 
-def graph_data(pop, inf, days):
+
+
+def graph_data(pop, inf, days, tc, tr):
+    b, g = system_var(tc, tr)
     initial_SIR = np.array(initialize_inf(pop, inf))
-    final_pop = run_sim(initial_SIR, days)
+    final_pop = run_sim(initial_SIR, days, b, g)
     
     S = final_pop[:,0]
     I = final_pop[:,1]
@@ -28,14 +31,14 @@ def graph_data(pop, inf, days):
     plt.ylabel('Population Percent')
     plt.show()
 
-graph_data(100, 1, 125)
+#graph_data(100, 1, 125)
 
-initial_SIR = np.array(initialize_inf(100, 1))
-final_pop = run_sim(initial_SIR, 125)
+#initial_SIR = np.array(initialize_inf(100, 1))
+#final_pop = run_sim(initial_SIR, 125)
 
 def table_data(data):
     
     d = {'Susceptible': data[:,0], 'Infected': data[:,1], 'Recovered': data[:,2]}
     return pd.DataFrame(data = d)
      
-print(table_data(final_pop))
+#print(table_data(final_pop))

@@ -15,24 +15,24 @@ a = np.array([["Measles", 4],
 
 b = np.array([[0, 2],[1, 5],[2, 10]])
 
-def enviromentInfo(tc, disease):
+def environmentInfo(tc, disease):
     recovery = int(a[disease, 1])
-    contact = int(b[tc, ])
-    return sev   
+    contact = int(b[tc, 1])
+    return contact, recovery   
 
 def initialize_inf(pop, inf):
     sus = pop - inf
     return [[sus/pop, inf/pop, 0]]
 
-initial_SIR = np.array(initialize_inf(100, 1))
+#initial_SIR = np.array(initialize_inf(100, 1))
 
 def system_var(tc, tr):
-    #tc = tc / sev
     beta = 1 / tc
     gamma = 1 / tr
     return beta, gamma
 
-b, g = system_var(3, 14)
+#tc, tr = environmentInfo(tc, disease)
+#b, g = system_var(tc, tr)
 
 def update_system(pop, beta, gamma, i,):
     current_pop = pop[i]
@@ -52,9 +52,9 @@ def update_system(pop, beta, gamma, i,):
     pop = np.concatenate((pop, new_pop))
     return pop
 
-new_pop = update_system(initial_SIR, b, g, 0)
+#new_pop = update_system(initial_SIR, b, g, 0)
 
-def run_sim(pop, days):
+def run_sim(pop, days, b, g):
     
     for i in range(days):
         if i == 0:
@@ -64,6 +64,6 @@ def run_sim(pop, days):
             
     return new_pop
         
-final_pop = run_sim(initial_SIR, 7*14)
+#final_pop = run_sim(initial_SIR, 7*14)
 
         

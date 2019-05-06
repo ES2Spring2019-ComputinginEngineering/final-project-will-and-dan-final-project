@@ -6,17 +6,19 @@ might want to test this on a classmates computer to be sure it works!"""
 
 
 # IMPORT STATEMENTS
-
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-from simulation_functions import initialize_inf, run_sim
+from simulation_functions import initialize_inf, run_sim, environmentInfo, system_var
 from graph_functions import graph_data, table_data
-from user_input import userInput, severityCoeff
+from user_input import userInput
 
 # DEMONSTRATION CODE
-pop, infect, vaccine, disease, days = userInput()
-graph_data(pop, infect, days)
+pop, infect, tc, disease, days = userInput()
+
+tc, tr = environmentInfo(tc, disease)
+b, g = system_var(tc, tr)
+
+graph_data(pop, infect, days, tc, tr)
+
 initial_SIR = np.array(initialize_inf(pop, infect))
-final_pop = run_sim(initial_SIR, days)
+final_pop = run_sim(initial_SIR, days, b, g)
 print(table_data(final_pop))
