@@ -5,7 +5,7 @@ This project simulates an epidemic by taking data inputted by the user and calcu
 
 ## Instructions
 
-When main.py is open, run the program. It will prompt you for the following data:
+When main.py is open, run the program. It will prompt you to input the following data:
 
 - Total population
 - Initial infected population
